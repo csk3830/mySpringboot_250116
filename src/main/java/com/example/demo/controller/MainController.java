@@ -1,4 +1,5 @@
-package com.example.demo;
+package com.example.demo.controller;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,14 +10,12 @@ import java.util.List;
 
 @Slf4j
 @Controller
-public class TestController {
+public class MainController {
+
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("msg", "우선 띄워보자");
+        model.addAttribute("msg", "메인입니당");
         log.info("msg >>>>>>>>>>>, {}", model);
-        List<String> list = Arrays.asList("list의 요소 1", "list의 요소 2", "list의 요소 3", "list의 요소 4", "list의 요소 5");
-        model.addAttribute("list", list);
-        log.info("list >>>>>>>>>>>, {}", model);
         return "index";
     }
 }
