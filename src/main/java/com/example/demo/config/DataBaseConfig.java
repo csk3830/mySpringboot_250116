@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
@@ -41,6 +42,9 @@ public class DataBaseConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean =
                 new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
+        sqlSessionFactoryBean.setMapperLocations(
+                new PathMatchingResourcePatternResolver().getResources(mapperLocations)
+        );
         return sqlSessionFactoryBean.getObject();
     }
 

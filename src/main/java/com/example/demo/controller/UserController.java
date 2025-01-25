@@ -19,9 +19,12 @@ public class UserController {
     @GetMapping("/login")
     public void login(){}
 
+    @GetMapping("/register")
+    public void register(){}
+
     @PostMapping("/register")
     public String register(UserVO userVO){
         userService.register(userVO);
-        return "/user/login";
+        return "redirect:/user/login";
     }
 }
