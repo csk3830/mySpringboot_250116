@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrap.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+    <h1>회원가입 화면입니당</h1>
+    <form action="/user/register" method="post">
+        <ul>
+            <li><span>사용자 ID</span><input type="text" name="username"></li>
+            <li><span>비밀번호</span><input type="text" name="password"></li>
+            <li><span>이메일</span><input type="text" name="email"></li>
+        </ul>
+    </form>
+</div>
