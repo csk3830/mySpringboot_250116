@@ -5,3 +5,11 @@ CREATE TABLE user (
                       email VARCHAR(255) UNIQUE,
                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE board(
+  id int auto_increment primary key,
+  user_id int not null,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  is_del CHAR(1) DEFAULT 'N',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

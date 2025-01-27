@@ -6,5 +6,12 @@
 
 <div layout:fragment="content">
   <h1>게시판 글쓰기 화면입니당</h1>
-
+  <form action="/board/register" method="post">
+    <ul>
+      <li><span>userId</span><input type="text" name="userId"></li>
+      <li><span>글제목</span><input type="text" name="title"></li>
+      <li><span>내용</span><textarea name="content"></textarea></li>
+    </ul>
+    <button type="submit" class="btn btn-primary">등록</button>
+  </form>
 </div>
