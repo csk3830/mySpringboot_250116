@@ -42,6 +42,10 @@ public class DataBaseConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean =
                 new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
+        /* mybatis-config.xml 존재할 경우. */
+        sqlSessionFactoryBean.setConfigLocation(
+                applicationContext.getResource("classpath:/mybatis-config.xml")
+        );
         sqlSessionFactoryBean.setMapperLocations(
                 new PathMatchingResourcePatternResolver().getResources(mapperLocations)
         );

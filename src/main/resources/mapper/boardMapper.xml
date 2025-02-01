@@ -6,4 +6,8 @@
         insert into board (user_id, title, content)
         value (#{userId}, #{title}, #{content} )
     </insert>
+    <select id="getList" resultType="com.example.demo.domain.BoardVO">
+        select * from board
+        where is_del = 'N'
+    </select>
 </mapper>
