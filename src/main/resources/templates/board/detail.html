@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrap.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+    <h1>게시판 상세보기 화면입니당</h1>
+    <div class="d-flex justify-content-between">
+        <div>
+            <span>[[${boardVO.id}]]</span>
+            <span>[[${boardVO.title}]]</span>
+        </div>
+        <div>
+            <span>[[${boardVO.userId}]]</span>
+            <span>[[${boardVO.createdAt}]]</span>
+        </div>
+    </div>
+    <div>
+        [[${boardVO.content}]]
+    </div>
+    <a class="btn btn-primary" href="/board/list">목록으로</a>
+</div>

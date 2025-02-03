@@ -18,7 +18,9 @@
         <tbody>
         <tr th:if="${list != null and list.size() > 0}" th:each="boardVO : ${list}">
             <td th:text="${boardVO.id}"></td>
-            <td th:text="${boardVO.title}"></td>
+            <td>
+                <a th:href="@{/board/detail(id=${boardVO.id})}" th:text="${boardVO.title}"></a>
+            </td>
             <td th:text="${boardVO.userId}"></td>
             <td th:text="${boardVO.createdAt}"></td>
         </tr>

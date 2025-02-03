@@ -9,4 +9,6 @@ import java.util.List;
 public interface BoardMapper {
     void register(BoardVO boardVO);
     List<BoardVO> getList();
+
+    BoardVO getBoardById(long id);
 }

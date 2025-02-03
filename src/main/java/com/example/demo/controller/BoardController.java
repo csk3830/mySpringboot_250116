@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -23,7 +24,6 @@ public class BoardController {
     public String list(Model model){
         List<BoardVO> list = boardService.getList();
         model.addAttribute("list", list);
-        log.info("list!!>>> {}", list);
         return "/board/list";
     }
 
@@ -36,5 +36,12 @@ public class BoardController {
     public String register(BoardVO boardVO){
         boardService.register(boardVO);
         return "redirect:/board/list";
+    }
+
+    @GetMapping({"/detail", "/modify"})
+    public String detail(Model model, @RequestParam("id") long id){
+        BoardVO boardVO = boardService.getBoardById(id);
+        model.addAttribute("boardVO", boardVO);
+        return "/board/detail";
     }
 }
