@@ -8,4 +8,5 @@ public interface BoardService {
     void register(BoardVO boardVO);
     List<BoardVO> getList();
     BoardVO getBoardById(long id);
+    void updateBoard(BoardVO boardVO);
 }

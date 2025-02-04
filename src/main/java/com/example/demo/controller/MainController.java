@@ -15,7 +15,6 @@ public class MainController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("msg", "메인입니당");
-        log.info("msg >>>>>>>>>>>, {}", model);
         return "index";
     }
 }

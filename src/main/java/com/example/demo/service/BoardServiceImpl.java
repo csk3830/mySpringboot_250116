@@ -29,4 +29,9 @@ public class BoardServiceImpl implements BoardService{
     public BoardVO getBoardById(long id) {
         return boardMapper.getBoardById(id);
     }
+
+    @Override
+    public void updateBoard(BoardVO boardVO) {
+        boardMapper.updateBoard(boardVO);
+    }
 }

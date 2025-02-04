@@ -39,9 +39,17 @@ public class BoardController {
     }
 
     @GetMapping({"/detail", "/modify"})
-    public String detail(Model model, @RequestParam("id") long id){
+    public String read(Model model, @RequestParam("id") long id, @RequestParam(value = "mode", defaultValue = "detail") String mode){
         BoardVO boardVO = boardService.getBoardById(id);
         model.addAttribute("boardVO", boardVO);
-        return "/board/detail";
+        model.addAttribute("mode", mode);
+        return mode.equals("modify") ? "/board/modify" : "/board/detail";
     }
+
+    @PostMapping("/update")
+    public String update(BoardVO boardVO){
+        boardService.updateBoard(boardVO);
+        return "redirect:/board/detail?id=" + boardVO.getId();
+    }
+
 }

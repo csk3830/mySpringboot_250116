@@ -19,5 +19,6 @@
     <div>
         [[${boardVO.content}]]
     </div>
+    <a class="btn btn-warning" th:href="@{/board/modify(id=${boardVO.id}, mode='modify')}">수정</a>
     <a class="btn btn-primary" href="/board/list">목록으로</a>
 </div>

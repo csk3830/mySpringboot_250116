@@ -14,4 +14,9 @@
     <select id="getBoardById" resultType="com.example.demo.domain.BoardVO">
         select * from board where id = #{id}
     </select>
+    <update id="updateBoard" parameterType="com.example.demo.domain.BoardVO">
+        UPDATE board
+        SET title = #{title}, content = #{content}
+        WHERE id = #{id}
+    </update>
 </mapper>

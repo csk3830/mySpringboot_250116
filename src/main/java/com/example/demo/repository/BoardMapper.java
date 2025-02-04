@@ -7,8 +7,12 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
+
     void register(BoardVO boardVO);
+
     List<BoardVO> getList();
 
     BoardVO getBoardById(long id);
+
+    void updateBoard(BoardVO boardVO);
 }
