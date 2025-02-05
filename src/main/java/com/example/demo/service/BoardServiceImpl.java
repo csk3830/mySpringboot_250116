@@ -34,4 +34,9 @@ public class BoardServiceImpl implements BoardService{
     public void updateBoard(BoardVO boardVO) {
         boardMapper.updateBoard(boardVO);
     }
+
+    @Override
+    public void isDelUpdate(long id) {
+        boardMapper.isDelUpdate(id);
+    }
 }

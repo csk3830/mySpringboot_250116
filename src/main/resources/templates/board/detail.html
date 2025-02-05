@@ -19,6 +19,12 @@
     <div>
         [[${boardVO.content}]]
     </div>
-    <a class="btn btn-warning" th:href="@{/board/modify(id=${boardVO.id}, mode='modify')}">수정</a>
-    <a class="btn btn-primary" href="/board/list">목록으로</a>
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-warning" th:href="@{/board/modify(id=${boardVO.id}, mode='modify')}">수정</a>
+        <form action="/board/delete" method="post" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+            <input type="hidden" name="id" th:value="${boardVO.id}">
+            <button type="submit" class="btn btn-danger">삭제</button>
+        </form>
+        <a class="btn btn-primary" href="/board/list">목록으로</a>
+    </div>
 </div>

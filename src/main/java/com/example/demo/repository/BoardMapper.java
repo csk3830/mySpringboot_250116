@@ -15,4 +15,6 @@ public interface BoardMapper {
     BoardVO getBoardById(long id);
 
     void updateBoard(BoardVO boardVO);
+
+    void isDelUpdate(long id);
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -50,6 +51,13 @@ public class BoardController {
     public String update(BoardVO boardVO){
         boardService.updateBoard(boardVO);
         return "redirect:/board/detail?id=" + boardVO.getId();
+    }
+
+    @PostMapping("/delete")
+    public String delete(@RequestParam("id") long id, RedirectAttributes redirectAttributes) {
+        boardService.isDelUpdate(id);
+        redirectAttributes.addFlashAttribute("message", "성공적으로 삭제되었습니다.");
+        return "redirect:/board/list";
     }
 
 }

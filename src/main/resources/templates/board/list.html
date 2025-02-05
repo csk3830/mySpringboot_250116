@@ -33,4 +33,13 @@
     </table>
 
     <h2><a class="btn btn-primary" href="/board/register">글쓰기</a></h2>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var message = [[${message}]];
+        if (message) {
+            alert(message);
+        }
+        /*]]>*/
+    </script>
 </div>

@@ -12,11 +12,18 @@
         order by id desc
     </select>
     <select id="getBoardById" resultType="com.example.demo.domain.BoardVO">
-        select * from board where id = #{id}
+        select * from board
+        where id = #{id}
+            and is_del = 'N'
     </select>
     <update id="updateBoard" parameterType="com.example.demo.domain.BoardVO">
         UPDATE board
         SET title = #{title}, content = #{content}
         WHERE id = #{id}
+    </update>
+    <update id="isDelUpdate">
+        update board
+        set is_del = 'Y'
+        where id = #{id}
     </update>
 </mapper>

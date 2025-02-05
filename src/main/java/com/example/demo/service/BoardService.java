@@ -5,8 +5,14 @@ import com.example.demo.domain.BoardVO;
 import java.util.List;
 
 public interface BoardService {
+
     void register(BoardVO boardVO);
+
     List<BoardVO> getList();
+
     BoardVO getBoardById(long id);
+
     void updateBoard(BoardVO boardVO);
+
+    void isDelUpdate(long id);
 }
