@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.BoardVO;
+import com.example.demo.domain.PagingVO;
 import com.example.demo.repository.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +21,8 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public List<BoardVO> getList() {
-        List<BoardVO> list = boardMapper.getList();
+    public List<BoardVO> getList(PagingVO pagingVO) {
+        List<BoardVO> list = boardMapper.getList(pagingVO);
         return list;
     }
 
@@ -38,5 +39,10 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public void isDelUpdate(long id) {
         boardMapper.isDelUpdate(id);
+    }
+
+    @Override
+    public int getTotal(PagingVO pagingVO) {
+        return boardMapper.getTotal(pagingVO);
     }
 }

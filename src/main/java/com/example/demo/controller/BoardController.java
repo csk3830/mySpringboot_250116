@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.BoardVO;
+import com.example.demo.domain.PagingVO;
+import com.example.demo.handler.PagingHandler;
 import com.example.demo.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,9 +24,14 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/list")
-    public String list(Model model){
-        List<BoardVO> list = boardService.getList();
+    public String list(Model model, PagingVO pagingVO){
+        List<BoardVO> list = boardService.getList(pagingVO);
+        int totalCount = boardService.getTotal(pagingVO);
+        PagingHandler pagingHandler = new PagingHandler(pagingVO, totalCount);
+
         model.addAttribute("list", list);
+        model.addAttribute("pagingHandler", pagingHandler);
+
         return "/board/list";
     }
 
