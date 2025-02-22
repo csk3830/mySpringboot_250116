@@ -1,0 +1,59 @@
+/* Reset default styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+/* Remove default styles for lists, links, tables, etc. */
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Tables: collapse borders */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Form elements */
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+/* Remove default fieldset border */
+fieldset {
+    border: none;
+}
+
+/* Add focus outline to inputs and buttons */
+input:focus, textarea:focus, button:focus {
+    outline: none;
+}
